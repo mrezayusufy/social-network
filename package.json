@@ -1,0 +1,38 @@
+{
+  "name": "social-network",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Reyu",
+  "license": "MIT",
+  "scripts": {
+    "createTables": "node src/database/migrations/createTables.js",
+    "urlTrigger": "node src/database/migrations/urlTrigger.js",
+    "updatedAtTrigger": "node src/database/migrations/updatedAtTrigger.js",
+    "createAll": "yarn createTables && yarn urlTrigger && yarn updatedAtTrigger",
+    "dropSchema": "node src/database/migrations/dropSchema.js",
+    "resetDb": "yarn dropSchema && yarn createAll",
+    "dev": "nodemon src/server.js",
+    "dev:debug": "nodemon --inspect src/server.js"
+  },
+  "dependencies": {
+    "@sentry/node": "5.12.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "youch": "^2.0.10",
+    "yup": "^0.28.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "sucrase": "^3.12.1"
+  }
+}
